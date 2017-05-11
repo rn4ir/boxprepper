@@ -1,0 +1,5 @@
+---
+    - name: Creating a secondary, non-root user
+      user: name={{ nonroot_user }}
+            password={{ nonroot_pass }}
+            shell='/bin/bash'

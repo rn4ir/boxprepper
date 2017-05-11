@@ -1,0 +1,6 @@
+---
+- hosts: boxprepper
+  remote_user: root
+
+  roles:
+    - initial_setup
