@@ -1,0 +1,25 @@
+---
+    - name: Add to the 'internal' zone
+      firewalld: zone=internal
+                 service='ssh'
+                 permanent=true
+                 state=enabled
+
+    - name: Add source IPs to the 'internal' zone
+      firewalld: source=192.168.1.92
+                 zone=internal
+                 state=enabled
+                 
+    - name: Add source IPs to the 'internal' zone
+      firewalld: source=192.168.1.15
+                 zone=internal
+                 state=enabled
+
+    - name: Remove SSH from the 'public' zone
+      firewalld: zone=public
+                 service=ssh
+                 permanent=true
+                 state=disabled
+
+    notify:
+      - restart_firewalld

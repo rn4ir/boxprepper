@@ -1,0 +1,27 @@
+---
+    - name: Install fail2ban on RedHat variants
+      yum: name={{ item }}
+           update_cache=yes
+           state=latest
+      with_items:
+        - fail2ban
+        - sendmail
+      when: ansible_os_family == "RedHat"
+
+    - name: Install fail2ban on Debian variants
+      apt: name={{ item }}
+           update_cache=yes
+           state=latest
+      with_items:
+        - fail2ban
+        - sendmail-bin
+        - sendmail
+      when: ansible_os_family == "Debian"
+
+     - name: Enable and Start fail2ban
+       systemd: name=fail2ban
+                state=started
+                enabled=yes
+
+       notify:
+         - restart_fail2ban
