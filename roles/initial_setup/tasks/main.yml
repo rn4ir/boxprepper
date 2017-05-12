@@ -15,6 +15,12 @@
            state=latest
       when: ansible_os_family == "RedHat"
 
+    - name: Install the 'epel' repo (to install fail2ban)
+      yum: name=epel
+           update_cache=yes
+           state=latest
+      when: ansible_os_family == "RedHat"
+
     - name: Check if 'firewalld' exists, if not, install it for Debian variants
       apt: name=firewalld
            update_cache=yes
