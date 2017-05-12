@@ -14,7 +14,7 @@
 
     - name: Configure autoupdates for Redhat variants
       lineinfile: dest=/etc/yum/yum-cron.conf
-                  regex='^apply_updates ='
+                  regexp='^apply_updates ='
                   line='apply_updates = no'
                   state=present
       when: ansible_os_family == "RedHat"
@@ -26,11 +26,11 @@
       when: ansible_os_family == "Debian"
 
     - name: Copy upgrades configuration files.
-      template: src="../templates/{{ item }}.j2"
-                dest="/etc/apt/apt.conf.d/{{ item }}"
-                owner: root
-                group: root
-                mode: 0644
+      template: src={{ item }}.j2
+                dest=/etc/apt/apt.conf.d/{{ item }}
+                owner=root
+                group=root
+                mode=0644
       with_items:
         - 10periodic
         - 50unattended-upgrades

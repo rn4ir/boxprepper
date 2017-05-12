@@ -4,10 +4,13 @@
       yum: name=*
            update_cache=yes
            state=latest
-
+      when: ansible_os_family == "RedHat"
+    
     - name: Update all the 'apt' packages on 'Debian' variants
       apt: update_cache=yes
            upgrade=yes
+           state=latest
+      when: ansible_os_family == "Debian"
 
     - name: Check if 'firewalld' exists, if not, install it for RedHat variants
       yum: name=firewalld
@@ -16,7 +19,7 @@
       when: ansible_os_family == "RedHat"
 
     - name: Install the 'epel' repo (to install fail2ban)
-      yum: name=epel
+      yum: name=epel-release
            update_cache=yes
            state=latest
       when: ansible_os_family == "RedHat"

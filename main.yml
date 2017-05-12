@@ -1,8 +1,13 @@
 ---
 - hosts: boxprepper
-  remote_user: root
+  remote_user: zuser0
+  become: yes
+  become_method: sudo
 
   roles:
     - initial_setup
-    - firewall
     - secure_ssh
+    - firewall
+    - autoupdates
+    - fail2ban
+    - logwatch
