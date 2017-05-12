@@ -1,0 +1,16 @@
+---
+   - name: Install the logwatch packages in Redhat variants
+     yum: name=logwatch
+          update_cache=yes
+          state=latest
+     when: ansible_os_family == "RedHat"
+
+   - name: Install the logwatch packages in Debian variants
+     apt: name=logwatch
+          update_cache=yes
+          state=latest
+     when: ansible_os_family == "Debian"
+
+   - name: Configure logwatch
+     template: src=logwatch.conf.j2 
+               dest=/etc/logwatch/conf/logwatch.conf

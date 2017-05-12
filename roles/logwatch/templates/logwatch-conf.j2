@@ -1,0 +1,23 @@
+LogDir = "/var/log"
+
+# You can override the default temp directory (/tmp) here
+TmpDir = "/var/cache/logwatch"
+
+# Output/Format Options
+Output = "mail"
+Format = "text"
+Encode = "none"
+
+# Default person to mail reports to
+MailTo = "root"
+MailFrom = "Logwatch"
+
+# The default time range for the report...
+Range = "yesterday"
+
+# The default detail level for the report.
+Detail = "Med"
+
+# By default we assume that all Unix systems have sendmail or a sendmail-like MTA.
+# The mailer code prints a header with To: From: and Subject:.
+mailer = "/usr/sbin/sendmail -t"
