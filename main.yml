@@ -4,3 +4,5 @@
 
   roles:
     - initial_setup
+    - firewall
+    - secure_ssh

@@ -1,0 +1,22 @@
+---
+
+    - name: Update all the 'yum' packages on 'RedHat' variants
+      yum: name=*
+           update_cache=yes
+           state=latest
+
+    - name: Update all the 'apt' packages on 'Debian' variants
+      apt: update_cache=yes
+           upgrade=yes
+
+    - name: Check if 'firewalld' exists, if not, install it for RedHat variants
+      yum: name=firewalld
+           update_cache=yes
+           state=latest
+      when: ansible_os_family == "RedHat"
+
+    - name: Check if 'firewalld' exists, if not, install it for Debian variants
+      apt: name=firewalld
+           update_cache=yes
+           state=latest
+      when: ansible_os_family == "Debian"
