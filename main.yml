@@ -1,0 +1,14 @@
+---
+    - hosts: boxprepper
+      remote_user: ansibleuser
+      become: yes
+      become_method: sudo
+
+      roles:
+       - prerequisites
+       - openssh
+       - firewall
+       - updates
+       - fail2ban
+       - logwatch
+       - 2fa

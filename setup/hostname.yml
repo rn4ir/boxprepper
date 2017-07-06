@@ -1,0 +1,30 @@
+---
+   - hosts: boxprepper
+     remote_user: ansibleuser
+     become: yes
+     become_method: sudo
+
+     vars_files:
+       - vars.yml
+  
+     tasks:
+       # Check if 'systemd' is installed on the OS, if not, install it.
+       - name: Check or Install 'systemd' on RedHat variants
+         yum: name=systemd
+              update_cache=yes
+              state=latest
+         when: ansible_os_family == "RedHat"
+
+       - name: Check or Install 'systemd' on Debian variants
+         apt: name=systemd
+              update_cache=yes
+              state=latest
+         when: ansible_os_family == "Debian"
+
+       - name: Set the hostname for 'RedHat' variants
+         action: shell hostnamectl set-hostname 'centos.{{ servers_name }}'
+         when: ansible_os_family == "RedHat"
+
+       - name: Set the hostname for 'Debian' variants
+         action: shell hostnamectl set-hostname 'debian.{{ servers_name }}'
+         when: ansible_os_family == "Debian
