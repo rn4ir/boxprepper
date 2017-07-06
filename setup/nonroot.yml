@@ -22,8 +22,8 @@
                state=latest
           when: ansible_os_family == "RedHat"
 
-        - name: check if 'sudo' exists on the remote server (Debian/Ubuntu)
-          yum: name=sudo
+        - name: check if 'apt' exists on the remote server (Debian/Ubuntu)
+          yum: name=apt
                update_cache=yes
                state=latest
           when: ansible_os_family == "Debian"

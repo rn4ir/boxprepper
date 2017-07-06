@@ -27,4 +27,4 @@
 
        - name: Set the hostname for 'Debian' variants
          action: shell hostnamectl set-hostname 'debian.{{ servers_name }}'
-         when: ansible_os_family == "Debian
+         when: ansible_os_family == "Debian"
