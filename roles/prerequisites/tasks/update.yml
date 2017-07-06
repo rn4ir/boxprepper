@@ -1,0 +1,25 @@
+---
+    - name: Update yum
+      yum: name=*
+           update_cache=yes
+           state=latest
+      when: ansible_os_family == "RedHat"
+
+    - name: Update apt
+      apt: name=*
+           upgrade=yes
+           update_cache=yes
+           state=latest
+      when: ansible_os_family == "Debian"
+
+    - name: Install core 'devel' packages in CentoS/Redhat
+      yum: name='@Development tools'
+           update_cache=yes
+           state=latest
+      when: ansible_os_family == "RedHat"
+
+    - name: Install core 'devel' packages in Debian/Ubuntu
+      yum: name=build-essential
+           update_cache=yes
+           state=latest
+      when: ansible_os_family == "Debian"
