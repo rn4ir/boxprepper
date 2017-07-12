@@ -30,5 +30,11 @@
                   line='AllowUsers ansibleuser'
                   state=present
 
+    # Allow only IPv4 logins
+    - name: Add AddressFamily to sshd_config
+      lineinfile: dest=/etc/ssh/sshd_config
+                  line='AddressFamily inet'
+                  state=present
+
       notify:
         - restart_sshd

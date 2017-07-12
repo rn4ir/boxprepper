@@ -1,0 +1,6 @@
+---
+    - name: open custom ssh port
+      firewalld: port=5622/tcp
+                 permanent=true
+                 state=enabled
+                 immediate=yes
