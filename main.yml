@@ -8,7 +8,5 @@
        - prerequisites
        - openssh
        - firewall
-#       - updates
+       - updates
 #       - fail2ban
-#       - logwatch
-#       - 2fa
