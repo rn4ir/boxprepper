@@ -12,12 +12,6 @@
            state=latest
       when: ansible_os_family == "Debian"
 
-#    - name: Upgrade apt
-#      apt: name=*
-#           upgrade=yes
-#           state=latest
-#      when: ansible_os_family == "Debian"
-
     - name: Install core 'devel' packages in CentoS/Redhat
       yum: name='@Development tools'
            update_cache=yes

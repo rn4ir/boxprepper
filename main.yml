@@ -7,7 +7,7 @@
       roles:
        - prerequisites
        - openssh
-#       - firewall
+       - firewall
 #       - updates
 #       - fail2ban
 #       - logwatch

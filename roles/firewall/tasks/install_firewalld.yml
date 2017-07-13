@@ -1,0 +1,17 @@
+---
+   - name: Install firewalld
+     apt: 
+          name=firewalld
+          update_cache=yes
+          state=latest
+     when: ansible_os_family == "Debian"
+
+   - name: Install firewalld
+     yum: name=firewalld
+          update_cache=yes
+          state=latest
+     when: ansible_os_family == "RedHat"
+
+     notify:
+       - open_ssh_port
+       - restart_sshd

@@ -1,2 +1,3 @@
 ---
+- include: install_firewalld.yml
 - include: enable_sshport.yml
