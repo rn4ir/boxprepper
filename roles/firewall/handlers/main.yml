@@ -1,8 +1,8 @@
-    - name: open_ssh_port
-      firewalld: port=5622/tcp
-                 permanent=true
-                 state=enabled
-                 immediate=yes
+#    - name: open_ssh_port
+#      firewalld: port=5622/tcp
+#                 permanent=true
+#                 state=enabled
+#                 immediate=yes
 
     - name: restart_sshd
       service: name=sshd
