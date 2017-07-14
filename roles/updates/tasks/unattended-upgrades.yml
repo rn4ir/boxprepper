@@ -1,2 +1,12 @@
 ---
-   - name: Install unattended upgrades 
+   - name: Install unattended upgrades on Debian/Ubuntu
+     apt: name=unattended-upgrades
+          update_cache=yes
+          state=latest
+     when: ansible_os_family == "Debian"
+
+   - name: Install yum-cron on CentOS/RedHat
+     yum: name=yum-cron
+          update_cache=yes
+          state=latest
+     when: ansible_os_family == "RedHat"
