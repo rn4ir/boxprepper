@@ -9,4 +9,4 @@
        - openssh
        - firewall
        - updates
-#       - fail2ban
+       - fail2ban
