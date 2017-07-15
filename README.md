@@ -8,6 +8,8 @@ as soon as the OS installation is complete.
 Here're a couple articles that outlines the manual steps, based on which this playbook was written:
 1. [Securing a new Linux Box - Part 1](https://muchbits.com/secure-linux-box-1.html)  
 2. [Securing a new Linux Box - Part 2](https://muchbits.com/secure-linux-box-2.html)  
+
+This playbook covers just the basic installation and ***not*** any configuration (custom or otherwise).
   
 *TODO:*  
 
