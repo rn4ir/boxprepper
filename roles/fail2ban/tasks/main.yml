@@ -9,7 +9,7 @@
       yum: name={{ item }}
            update_cache=yes
            state=latest
+      when: ansible_os_family == "Redhat"
       with_items:
         - epel-release
         - fail2ban
-      when: ansible_os_family == "Redhat"
